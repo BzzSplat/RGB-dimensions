@@ -2,14 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.Rendering;
 
-public class Stabilizer : MonoBehaviour
+public class Stabilizer : Interactable
 {
-    public bool setRed, red, setGreen, green, setBlue, blue;
+    public bool setRed, red, setGreen, green, setBlue, blue, powered;
     [SerializeField] VisualEffect zapEffect;
     [SerializeField] AudioClip zapSound;
     bool shouldZap, canShift = true;
     [SerializeField] float cooldown;
+
+    private void Awake()
+    {
+        //switch the power twice to make sure things are properly enabled or disabled
+        Interact();
+        Interact();
+    }
+
+    public override void Interact()
+    {
+        if (powered)
+        {
+            GetComponent<Collider>().enabled = false;
+            GetComponent<AudioSource>().Stop();
+            GetComponent<Volume>().enabled = false;
+            powered = !powered;
+        }
+        else
+        {
+            GetComponent<Collider>().enabled = true;
+            GetComponent<AudioSource>().Play();
+            GetComponent<Volume>().enabled = true;
+            powered = !powered;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {

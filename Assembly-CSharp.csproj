@@ -56,11 +56,15 @@
     <Analyzer Include="D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CamControl.cs" />
-    <Compile Include="Assets\Scripts\RigidMov.cs" />
+    <Compile Include="Assets\Scripts\Player\CamControl.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGrab.cs" />
+    <Compile Include="Assets\Scripts\Player\RigidMov.cs" />
     <Compile Include="Assets\Scripts\Stabilizer.cs" />
-    <Compile Include="Assets\Scripts\ColorShift.cs" />
+    <Compile Include="Assets\Scripts\Player\Controls.cs" />
+    <Compile Include="Assets\Scripts\Player\ColorShift.cs" />
     <Compile Include="Assets\Scripts\MaterialStorage.cs" />
+    <Compile Include="Assets\Scripts\ObjectButton.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Story.txt" />
